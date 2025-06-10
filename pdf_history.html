@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e2e;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #282a36;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .pdf-list {
+            list-style: none;
+            padding: 0;
+        }
+        .pdf-list li {
+            background: #44475a;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Your Uploaded PDFs</h2>
+        {% if uploaded_pdfs %}
+            <ul class="pdf-list">
+                {% for pdf in uploaded_pdfs %}
+                    <li>{{ pdf.file.name }} (Uploaded on {{ pdf.uploaded_at }})</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No PDFs uploaded yet.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

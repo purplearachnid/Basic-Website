@@ -1,0 +1,17 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Upload PDF</title>
+    <link rel="stylesheet" href="{% static 'converter/styles.css' %}">
+</head>
+<body>
+    <h2>Upload a PDF to Convert</h2>
+    <form action="{% url 'convert_pdf' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="pdf_file" accept=".pdf" required>
+        <button type="submit">Convert to Text</button>
+    </form>
+</body>
+</html>
